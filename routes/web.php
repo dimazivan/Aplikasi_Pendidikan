@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.pages.dashboard.index');
 });
+
+
+
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'App\Http\Controllers\Admin',
+], function ($router) {
+    // Data User
+    Route::resource('user', 'UserController');
+});

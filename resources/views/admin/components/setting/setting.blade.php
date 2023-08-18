@@ -45,9 +45,14 @@
 		</li>
 		<li>
 			<span></span>
-			<a data-target="navbar" href="#"><i class="fa fa-square-o"></i> Fixed Navbar</a>
-			<a class="hidden-inline-xs" data-target="sidebar" href="#"><i class="fa fa-square-o"></i> Fixed
-				Sidebar</a>
+			<a data-target="navbar" href="#">
+				<i class="fa fa-square-o"> </i>
+				Fixed Navbar
+			</a>
+			<a class="hidden-inline-xs" data-target="sidebar" href="#">
+				<i class="fa fa-square-o"></i>
+				Fixed Sidebar
+			</a>
 		</li>
 	</ul>
 </div>

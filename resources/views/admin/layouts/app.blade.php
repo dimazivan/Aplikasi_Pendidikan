@@ -19,21 +19,18 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="{{ asset('asset/icon/dimaz4.png') }}">
 
-	<!--base css styles-->
-	<link rel="stylesheet" href="{{ asset('backend/assets/bootstrap/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{ asset('backend/assets/font-awesome/css/font-awesome.min.css')}}">
-
-	<!--page specific css styles-->
-
-	<!--flaty css styles-->
-	<link rel="stylesheet" href="{{ asset('backend/css/flaty.css')}}">
-	<link rel="stylesheet" href="{{ asset('backend/css/flaty-responsive.css')}}">
-
+	@include('admin.components.css.css')
 
 	<!-- In File Style -->
 	@hasSection('style')
 	@yield('style')
 	@endif
+	<!-- <style>
+		footer {
+			position: absolute;
+			bottom: 0;
+		}
+	</style> -->
 
 	<!-- @hasSection('style_right_menu')
 	@yield('style_right_menu')
@@ -81,11 +78,15 @@
 	<div class="container" id="main-container">
 		<!-- Sidebar -->
 		@include('admin.layouts.sidebar')
+		<div id="main-content">
+			<!-- Content -->
+			@yield('content')
 
-		<!-- Content -->
-		@yield('content')
+			<!-- Footer -->
+			@include('admin.layouts.footer')
+			<a id="btn-scrollup" class="btn btn-circle btn-lg" href="#"><i class="fa fa-chevron-up"></i></a>
+		</div>
 	</div>
-
 	<!-- Script -->
 	@include('admin.components.script.script')
 
