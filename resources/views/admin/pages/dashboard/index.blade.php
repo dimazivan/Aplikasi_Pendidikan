@@ -20,8 +20,6 @@ Aplikasi Pendidikan
 		</ul>
 	</div>
 	<!-- END Breadcrumb -->
-
-
 	<!-- BEGIN Tiles -->
 	<div class="row">
 		<div class="col-md-7">

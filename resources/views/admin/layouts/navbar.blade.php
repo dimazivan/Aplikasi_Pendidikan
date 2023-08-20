@@ -2,29 +2,23 @@
 	<button type="button" class="navbar-toggle navbar-btn collapsed" data-toggle="collapse" data-target="#sidebar">
 		<span class="fa fa-bars"></span>
 	</button>
-	<a class="navbar-brand" href="#">
+	<a class="navbar-brand" href="{{ route('dashboard') }}">
 		<small>
 			<i class="fa fa-desktop"></i>
-			FLATY Admin
+			{{ __('Dashboard') }}
 		</small>
 	</a>
-
-	<!-- BEGIN Navbar Buttons -->
 	<ul class="nav flaty-nav pull-right">
-		<!-- BEGIN Button Tasks -->
 		<li class="hidden-xs">
 			<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 				<i class="fa fa-tasks"></i>
 				<span class="badge badge-warning">4</span>
 			</a>
-
-			<!-- BEGIN Tasks Dropdown -->
 			<ul class="dropdown-navbar dropdown-menu">
 				<li class="nav-header">
 					<i class="fa fa-check"></i>
 					4 Tasks to complete
 				</li>
-
 				<li>
 					<a href="#">
 						<div class="clearfix">
@@ -81,18 +75,12 @@
 					<a href="#">See tasks with details</a>
 				</li>
 			</ul>
-			<!-- END Tasks Dropdown -->
 		</li>
-		<!-- END Button Tasks -->
-
-		<!-- BEGIN Button Notifications -->
 		<li class="hidden-xs">
 			<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 				<i class="fa fa-bell"></i>
 				<span class="badge badge-important">5</span>
 			</a>
-
-			<!-- BEGIN Notifications Dropdown -->
 			<ul class="dropdown-navbar dropdown-menu">
 				<li class="nav-header">
 					<i class="fa fa-warning"></i>
@@ -141,18 +129,12 @@
 					<a href="#">See all notifications</a>
 				</li>
 			</ul>
-			<!-- END Notifications Dropdown -->
 		</li>
-		<!-- END Button Notifications -->
-
-		<!-- BEGIN Button Messages -->
 		<li class="hidden-xs">
 			<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 				<i class="fa fa-envelope"></i>
 				<span class="badge badge-success">3</span>
 			</a>
-
-			<!-- BEGIN Messages Dropdown -->
 			<ul class="dropdown-navbar dropdown-menu">
 				<li class="nav-header">
 					<i class="fa fa-comments"></i>
@@ -206,84 +188,40 @@
 					<a href="#">See all messages</a>
 				</li>
 			</ul>
-			<!-- END Notifications Dropdown -->
 		</li>
-		<!-- END Button Messages -->
-
-		<!-- BEGIN Button User -->
 		<li class="user-profile">
 			<a data-toggle="dropdown" href="#" class="user-menu dropdown-toggle">
-				<img class="nav-user-photo" src="img/demo/avatar/avatar1.jpg" alt="Penny's Photo" />
-				<span class="hhh" id="user_info">
-					Penny
+				<img class="nav-user-photo" src="{{ asset('backend/img/demo/avatar/avatar1.jpg')}}"
+					alt="Penny's Photo" />
+				<span class="hhh" id="user_info" style="text-transform:capitalize;">
+					{{ Auth::user()->name }}
 				</span>
 				<i class="fa fa-caret-down"></i>
 			</a>
-
-			<!-- BEGIN User Dropdown -->
 			<ul class="dropdown-menu dropdown-navbar" id="user_menu">
 				<li class="nav-header">
 					<i class="fa fa-clock-o"></i>
-					Logined From 20:45
+					<!-- Jam login -->
+					Ahay
 				</li>
-
 				<li>
-					<a href="#">
-						<i class="fa fa-cog"></i>
-						Account Settings
-					</a>
-				</li>
-
-				<li>
-					<a href="#">
+					<a href="{{ route('profile.edit') }}">
 						<i class="fa fa-user"></i>
-						Edit Profile
+						{{ __('Profile') }}
 					</a>
 				</li>
-
 				<li>
-					<a href="#">
-						<i class="fa fa-question"></i>
-						Help
-					</a>
-				</li>
+					<form method="POST" action="{{ route('logout') }}">
+						@csrf
+						<a href="{{ route('logout')}}" onclick="event.preventDefault();                                                
+							this.closest('form').submit();">
+							<i class="fa fa-off"></i>
+							{{ __('Log Out') }}
+						</a>
+					</form>
 
-				<li class="divider visible-xs"></li>
-
-				<li class="visible-xs">
-					<a href="#">
-						<i class="fa fa-tasks"></i>
-						Tasks
-						<span class="badge badge-warning">4</span>
-					</a>
-				</li>
-				<li class="visible-xs">
-					<a href="#">
-						<i class="fa fa-bell"></i>
-						Notifications
-						<span class="badge badge-important">8</span>
-					</a>
-				</li>
-				<li class="visible-xs">
-					<a href="#">
-						<i class="fa fa-envelope"></i>
-						Messages
-						<span class="badge badge-success">5</span>
-					</a>
-				</li>
-
-				<li class="divider"></li>
-
-				<li>
-					<a href="#">
-						<i class="fa fa-off"></i>
-						Logout
-					</a>
 				</li>
 			</ul>
-			<!-- BEGIN User Dropdown -->
 		</li>
-		<!-- END Button User -->
 	</ul>
-	<!-- END Navbar Buttons -->
 </div>

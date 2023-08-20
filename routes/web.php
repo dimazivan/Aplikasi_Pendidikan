@@ -19,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.pages.dashboard.index');
+    // return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -33,7 +34,7 @@ require __DIR__.'/auth.php';
 Route::group([
     'prefix' => 'admin',
     'namespace' => 'App\Http\Controllers\Admin',
-    'middleware' => ['auth']
+    'middleware' => ['auth','verified']
 ], function ($router) {
     // Data User
     Route::resource('user', 'UserController');
